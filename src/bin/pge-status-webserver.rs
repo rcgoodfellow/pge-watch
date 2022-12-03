@@ -22,6 +22,7 @@ async fn status_page(addr: String) -> Result<Template, String> {
         Ok(info) => Ok(Template::render(
             "status",
             context! {
+                query: addr,
                 info: info,
             },
         )),

@@ -67,7 +67,7 @@ fn massage(status: &mut Vec<PremStatus>) {
 
 fn massage_date(date: &mut String) {
     if let Ok(t) = chrono::DateTime::parse_from_rfc3339(date) {
-        let lt = t.with_timezone(&chrono::Local);
+        let lt = t.with_timezone(&chrono_tz::US::Pacific);
         *date = lt.naive_local().format("%b %-d %Y %l:%M %p").to_string();
     }
 }
