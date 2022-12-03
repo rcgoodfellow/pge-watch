@@ -42,3 +42,15 @@ jobs:
         with:
           name: pge-status-webserver
           path: target/release/pge-status-webserver
+
+      - name: artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: templates
+          path: templates
+
+      - name: artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: rocket-config
+          path: Rocket.toml
