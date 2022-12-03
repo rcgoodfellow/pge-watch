@@ -1,0 +1,90 @@
+<head>
+    <meta charset="utf-8">
+    <title>PGE Status</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<html>
+<style>
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: #1b1b1b;
+        color: #ccc;
+    }
+    input {
+        background-color: #111;
+        color: #aaa;
+    }
+}
+input {
+    padding: 10px;
+    border: 0;
+}
+html {
+    font-family: sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+}
+input {
+    font-size: 1.1em;
+}
+</style>
+<div style="margin-top: 20px; margin-bottom: 20px;">
+<center>
+<form action="/" style="width: 95%">
+    <div style="display: flex">
+    <input
+        type="search" 
+        id="addr" 
+        name="addr" 
+        placeholder="Enter full or partial street address"
+        style="float: left; flex-grow: 1; margin-right: 5px"
+    >
+    <input type="submit" style="display: inline" value="Search">
+    </div>
+</form>
+</center>
+</div>
+{{#each info}}
+    <h2 style="margin-bottom: 8px">{{this.prem_address1}}</h2>
+    {{#each this.sp_meter_transformer_details}}
+        {{#if this.current_outage.outage_start}}
+        <h3 style="margin-bottom: 3px; margin-top: 3px; color: #ce3535">Outage</h3>
+        <span style="font-size: small">
+        <b>Meter Id:</b> {{this.meter_id}}
+        <b>On:</b> {{this.smart_meter_status}}
+        </span>
+        <br><br>
+        {{#with this.current_outage}}
+            <span style="color: #1fa456">
+                <b>Estimated Restore Time:</b>
+            </span> {{this.current_etor}}<br>
+            <b>Last Update:</b> {{this.last_update}}<br>
+            <b>Start:</b> {{this.outage_start}}<br>
+            <b>Cause:</b> {{this.outage_cause}}<br>
+            <b>Crew Status:</b> {{this.crew_current_status}}<br>
+            <b>Impacted Customers:</b> {{this.est_customers}}<br>
+        {{/with}}
+        {{/if}}
+        {{#if this.most_recent_outage.outage_start}}
+        <h3 style="margin-bottom: 3px; margin-top: 3px;">Recent Outage</h3>
+        <span style="font-size: small">
+        <b>Meter Id:</b> {{this.meter_id}}
+        <b>On:</b> {{this.smart_meter_status}}
+        </span>
+        <br><br>
+        {{#with this.most_recent_outage}}
+            <b>Start:</b> {{this.outage_start}}<br>
+            <b>Cause:</b> {{this.outage_cause}}<br>
+            <b>Last Update:</b> {{this.last_update}}<br>
+            <b>Impacted Customers:</b> {{this.est_customers}}<br>
+        {{/with}}
+            <span style="color: #1fa456">
+            <b>Power Restored At:</b>
+            </span>
+            {{this.power_restored_at}}<br>
+        {{/if}}
+        <br>
+    {{/each}}
+    <hr>
+{{/each}}
+</html>

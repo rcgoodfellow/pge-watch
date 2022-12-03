@@ -1,0 +1,20 @@
+[package]
+name = "pge-status"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.66"
+clap = { version = "4.0.29", features = ["derive"] }
+reqwest = { version = "0.11.13", features = ["json"] }
+rocket = "0.5.0-rc.2"
+serde = { version = "1.0.148", features = ["serde_derive", "derive"] }
+serde_json = "1.0.89"
+tokio = { version = "1.22.0", features = ["macros", "rt-multi-thread"] }
+chrono = "0.4.23"
+
+[dependencies.rocket_dyn_templates]
+version = "0.1.0-rc.2"
+features = ["handlebars"]

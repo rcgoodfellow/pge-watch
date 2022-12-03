@@ -1,0 +1,30 @@
+name: Docs
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: check
+        run: |
+          cargo fmt -- --check
+          cargo clippy -- --deny warnings
+
+      - name: build
+        run: |
+          cargo build
+          cargo build --release
+
+      - name: artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: binaries
+          path: |
+            target/debug/pge-status
+            target/debug/pge-status-webserver
+            target/release/pge-status
+            target/release/pge-status-webserver

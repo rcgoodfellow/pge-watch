@@ -1,0 +1,52 @@
+<head>
+    <meta charset="utf-8">
+    <title>PGE Status</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: #1b1b1b;
+        color: #aaa;
+    }
+    input {
+        background-color: #111;
+        color: #aaa;
+    }
+}
+input {
+    padding: 10px;
+    border: 0;
+}
+html {
+    font-family: sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+}
+input,label {
+    font-size: 1.1em;
+}
+#main {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+</style>
+<html>
+<div id="main">
+    <h1 style="color: #00A6DF">PG&E Status</h1>
+    <form action="/" style="width: 90%">
+        <input
+            type="search" 
+            id="addr" 
+            name="addr" 
+            style="width: 100%"
+            placeholder="Enter full or partial street address"
+        ><br><br>
+        <center><input type="submit" value="Search"></center>
+    </form>
+</div>
+<html>
