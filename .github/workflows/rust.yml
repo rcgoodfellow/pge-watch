@@ -22,9 +22,23 @@ jobs:
       - name: artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: binaries
-          path: |
-            target/debug/pge-status
-            target/debug/pge-status-webserver
-            target/release/pge-status
-            target/release/pge-status-webserver
+          name: debug-pge-status
+          path: target/debug/pge-status
+
+      - name: artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: debug-pge-status-webserver
+          path: target/debug/pge-status-webserver
+
+      - name: artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: pge-status
+          path: target/release/pge-status
+
+      - name: artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: pge-status-webserver
+          path: target/release/pge-status-webserver
