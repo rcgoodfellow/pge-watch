@@ -10,7 +10,7 @@ you execute a search for an address of interest, it brings you to a page that:
 - Refreshes the information you are looking at in response to a browser page
   refresh. 
 
-This is in stark contrast to the morass of unrelenting stupidity that is the
+This is in stark contrast to the morass of unrelenting agony that is the
 PG&E outage center which is: massively bloated and takes forever to load, takes a
 horrendous number of navigation actions to get any useful information during an
 outage, and then makes you do the whole thing over every time you want an update.
